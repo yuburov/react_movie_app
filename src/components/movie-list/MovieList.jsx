@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 import './movie-list.scss';
 
@@ -32,7 +31,7 @@ const MovieList = props => {
             setItems(response.results);
         }
         getList();
-    }, []);
+    }, [props.category, props.id, props.type]);
 
     return (
         <div className="movie-list">
@@ -51,11 +50,6 @@ const MovieList = props => {
             </Swiper>
         </div>
     );
-}
-
-MovieList.propTypes = {
-    category: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
 }
 
 export default MovieList;
